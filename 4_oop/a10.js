@@ -122,16 +122,17 @@ class Launcher {
 
   display() {
 
-    //angleMode(DEGREES);
+    angleMode(DEGREES);
     //let angle = atan((height-mouseY)/(mouseX - width/2));
-    let angle = atan((mouseX - width/2),(height-mouseY));
+    let angle = atan2((height-mouseY),(width/2-mouseX)) - 70;
     print(angle);
 
     push();
 
     translate(width / 2, height - 20);
-    rotate(radians(angle)*20);
-    //scale(0.5);
+    //let rot = map(mouseX, 0, width, -90, 90);
+
+    rotate(angle);
 
     image(this.img, 0, 0, 100, 100);
 
